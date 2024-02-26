@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { GoTriangleUp } from "react-icons/go";
 import { MdCurrencyRupee } from "react-icons/md";
+import Tradingview from "./Tradingview";
 
 interface BitcoinData {
   inr: number;
@@ -47,35 +48,39 @@ const LiveData: React.FC = () => {
           Rank #1
         </div>
       </div>
-
-      {bitcoinData && (
-        <div className="flex flex-col space-y-1">
-          <div className="flex gap-12 items-center mt-8 ">
-            <span className="font-semibold text-[28px] flex  items-center">
-              <BsCurrencyDollar />
-              {formatPriceWithCommas(bitcoinData.usd)}{" "}
-            </span>
-            <div className="flex gap-2 items-center">
-              <span className="p-1 bg-[#EBF9F4] text-[#14B079] flex gap-1 items-center ">
-                {" "}
-                <GoTriangleUp size={"20px"} />{" "}
-                {bitcoinData.usd_24h_change.toFixed(2)}%
+      <div>
+        {bitcoinData && (
+          <div className="flex flex-col space-y-1">
+            <div className="flex gap-12 items-center mt-8 ">
+              <span className="font-semibold text-[28px] flex  items-center">
+                <BsCurrencyDollar />
+                {formatPriceWithCommas(bitcoinData.usd)}{" "}
               </span>
+              <div className="flex gap-2 items-center">
+                <span className="p-1 bg-[#EBF9F4] text-[#14B079] flex gap-1 items-center ">
+                  {" "}
+                  <GoTriangleUp size={"20px"} />{" "}
+                  {bitcoinData.usd_24h_change.toFixed(2)}%
+                </span>
 
-              <span className="text-[#768396] font-medium text-[14px] ">
-                (24)
+                <span className="text-[#768396] font-medium text-[14px] ">
+                  (24)
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <MdCurrencyRupee />
+              <span className="font-bold ">
+                {formatPriceWithCommas(bitcoinData.inr)}{" "}
               </span>
             </div>
           </div>
-          <div className="flex items-center">
-            <MdCurrencyRupee />
-            <span className="font-bold ">
-              {formatPriceWithCommas(bitcoinData.inr)}{" "}
-            </span>
-          </div>
-        </div>
-      )}
-      {!bitcoinData && <p>Loading...</p>}
+        )}
+        {!bitcoinData && <p>Loading...</p>}
+      </div>
+      <div className=" h-[600px] mt-5 ">
+        <Tradingview />
+      </div>
     </div>
   );
 };
