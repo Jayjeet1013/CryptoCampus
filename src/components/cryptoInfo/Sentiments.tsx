@@ -40,7 +40,7 @@ const Sentiments = () => {
         </h2>
       </div>
       <div
-        className="w-[100%] md:w-[70%] lg:w-[880px]  relative overflow-hidden"
+        className="w-[100%] md:w-[100%] lg:w-[880px]  relative overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -51,7 +51,7 @@ const Sentiments = () => {
           {data.slice(startIndex, startIndex + 2).map((item) => (
             <div
               key={item.id}
-              className="p-4 flex gap-2 lg:gap-3 bg-[#E8F4FD] w-[18%] md:w-[24%] lg:w-[25%] h-[160px] md:h-auto   rounded-lg  "
+              className="p-4 flex gap-2 lg:gap-3 bg-[#E8F4FD] w-[18%] md:w-[25%] lg:w-[25%] h-[160px] md:h-auto   rounded-lg  "
             >
               <div>
                 <Image
