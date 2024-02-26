@@ -8,10 +8,9 @@ const Sentiments = () => {
   const [touchStartX, setTouchStartX] = useState(0);
 
   const nextSlide = () => {
-    const newIndex = startIndex === data.length - 2 ? 0 : startIndex + 1;
+    const newIndex = startIndex === data.length - 1 ? 0 : startIndex + 1;
     setStartIndex(newIndex);
   };
-
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setTouchStartX(e.touches[0].clientX);
@@ -24,7 +23,6 @@ const Sentiments = () => {
       nextSlide();
     }
   };
-
 
   return (
     <div className="bg-[#FFFFFF] rounded-lg py-4 px-3 md:px-6 gap-3 flex flex-col mt-1 mb-6">
@@ -41,11 +39,15 @@ const Sentiments = () => {
           <Image src={"/img3.svg"} alt="logoimage" width={24} height={24} />
         </h2>
       </div>
-      <div className="w-[100%] md:w-[70%] lg:w-[880px]  relative overflow-hidden"
-       onTouchStart={handleTouchStart}
-       onTouchEnd={handleTouchEnd}
+      <div
+        className="w-[100%] md:w-[70%] lg:w-[880px]  relative overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
-        <div className="flex gap-3 lg:gap-5 " style={{ width: `${data.length * 450}px` }}>
+        <div
+          className="flex gap-3 lg:gap-5 "
+          style={{ width: `${data.length * 450}px` }}
+        >
           {data.slice(startIndex, startIndex + 2).map((item) => (
             <div
               key={item.id}
@@ -61,7 +63,9 @@ const Sentiments = () => {
               </div>
 
               <div className="">
-                <h1 className="pb-2 text-[12px] md:text-[14px]">{item.title}</h1>
+                <h1 className="pb-2 text-[12px] md:text-[14px]">
+                  {item.title}
+                </h1>
                 <h3 className="text-[10px] md:text-[14px] ">{item.content}</h3>
               </div>
             </div>

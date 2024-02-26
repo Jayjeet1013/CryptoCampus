@@ -32,7 +32,7 @@ const Top3Crypto: React.FC = () => {
   }, []);
 
   return (
-    <div className="py-4 px-6 bg-[#FFFFFF] rounded-lg mt-4 ">
+    <div className="py-4 md:px-6 bg-[#FFFFFF] rounded-lg mt-1 md:mt-4 md:w-full w-[92%] md:relative  absolute ">
       <div className="text-[24px] font-semibold mb-2 ">
         Trending Coins (24h)
       </div>

@@ -6,21 +6,23 @@ import { BsArrowRightShort } from "react-icons/bs";
 const GetStarted = () => {
   return (
     <div>
-      <div className="bg-[#0052FE] px-[30px] py-[40px] rounded-2xl gap-[20px] flex flex-col w-[96%]  md:w-[426px] items-center ">
-        <div className="text-[#FFFFFF] font-bold text-[22px] text-center lg:text-[24px] ">
-          Get Started with KoinX for FREE
-        </div>
-        <div className="text-[#F2F2F2] text-center ">
-          With our range of features that you can equip for free, KoinX allows
-          you to be more educated and aware of your tax reports.
-        </div>
-        <div>
-          <Image
-            src={"/getstarted.svg"}
-            alt="imageGetstarted"
-            width={178}
-            height={166}
-          />
+      <div className="bg-[#0052FE] px-[16px] md:px-[30px] py-[40px] rounded-2xl gap-[20px] flex flex-col w-[100%] md:mb-0 mb-6  md:w-[426px] items-center ">
+        <div className="flex md:flex-col flex-col-reverse items-center gap-[20px]  ">
+          <div className="text-[#FFFFFF] font-bold text-[22px] text-center lg:text-[24px] ">
+            Get Started with KoinX for FREE
+          </div>
+          <div className="text-[#F2F2F2] text-center ">
+            With our range of features that you can equip for free, KoinX allows
+            you to be more educated and aware of your tax reports.
+          </div>
+          <div>
+            <Image
+              src={"/getstarted.svg"}
+              alt="imageGetstarted"
+              width={178}
+              height={166}
+            />
+          </div>
         </div>
         <div className="flex gap-2 items-center p-4 bg-white rounded-lg w-[237px] justify-center ">
           <p>Get Started for FREE</p> <BsArrowRightShort size={"24px"} />

@@ -36,7 +36,7 @@ const LiveData: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-[#FFFFFF] p-6 rounded-lg ">
+    <div className="bg-[#FFFFFF] p-3 md:p-6 rounded-lg ">
       <div className=" flex gap-2 items-center text-center">
         <Image src={"/bitcoin.svg"} width={36} height={36} alt="bitcoinlogo" />
 
@@ -78,7 +78,7 @@ const LiveData: React.FC = () => {
         )}
         {!bitcoinData && <p>Loading...</p>}
       </div>
-      <div className=" h-[600px] mt-5 ">
+      <div className="h-[300px] md:h-[600px] mt-5 ">
         <Tradingview />
       </div>
     </div>

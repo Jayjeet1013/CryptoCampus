@@ -56,7 +56,7 @@ const AboutCrypto = () => {
             Already Holding Bitcoin?
           </h1>
           <div className="flex gap-6 pb-3 md:flex-row flex-col ">
-            <div className="flex w-[338px] gap-6 p-3 rounded-lg bg-gradient-to-br from-[#79F1A4] to-[#0E5CAD]">
+            <div className="flex  md:w-[338px] gap-6 p-3 rounded-lg bg-gradient-to-br from-[#79F1A4] to-[#0E5CAD]">
               <div>
                 <Image
                   src={"/rec2.svg"}
@@ -75,7 +75,7 @@ const AboutCrypto = () => {
                 </div>
               </div>
             </div>
-            <div className="flex w-[338px] gap-6 p-3 rounded-lg bg-gradient-to-br from-[#FF9865] to-[#EF3031]">
+            <div className="flex md:w-[338px] gap-6 p-3 rounded-lg bg-gradient-to-br from-[#FF9865] to-[#EF3031]">
               <div>
                 <Image
                   src={"/rec.svg"}

@@ -19,7 +19,7 @@ export default function Home() {
         <div className="max-w-[1450px] mx-auto px-4 md:px-6 lg:px-10 py-3 ">
           Cryptocurrencies {">>"} Bitcoin{" "}
         </div>
-        <div className="flex flex-col   gap-5 lg:flex-row px-4 md:px-6 lg:px-10 max-w-[1450px] mx-auto justify-between pt-3 pb-16 ">
+        <div className="flex flex-col   gap-5 lg:flex-row px-4 md:px-6 lg:px-10 max-w-[1450px] mx-auto justify-between pt-3 md:pb-16 ">
           <CryptoInfo />
           <GetStarted />
         </div>
