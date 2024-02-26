@@ -5,7 +5,7 @@ import { BsArrowRightShort } from "react-icons/bs";
 const AboutCrypto = () => {
   return (
     <div>
-      <div className="px-6 py-4 bg-[#FFFFFF] rounded-lg flex flex-col gap-3">
+      <div className="px-3 md:px-6  py-4 bg-[#FFFFFF] rounded-lg flex flex-col gap-3">
         <div className="border-b pb-3 ">
           <h1 className="text-[#0F1629] lg:text-[24px] font-[600] ">
             About Bitcoin
@@ -55,7 +55,7 @@ const AboutCrypto = () => {
           <h1 className="text-[#0F1629]  lg:text-[24px] font-semibold">
             Already Holding Bitcoin?
           </h1>
-          <div className="flex gap-6 pb-3 ">
+          <div className="flex gap-6 pb-3 md:flex-row flex-col ">
             <div className="flex w-[338px] gap-6 p-3 rounded-lg bg-gradient-to-br from-[#79F1A4] to-[#0E5CAD]">
               <div>
                 <Image

@@ -16,10 +16,10 @@ export default function Home() {
         <link rel="icon" href="/koinxlogo.svg" />
       </Head>
       <div className="bg-[#D3E0E6] ">
-        <div className="max-w-[1450px] mx-auto px-10 py-3 ">
+        <div className="max-w-[1450px] mx-auto px-4 md:px-6 lg:px-10 py-3 ">
           Cryptocurrencies {">>"} Bitcoin{" "}
         </div>
-        <div className="flex flex-col gap-5 lg:flex-row px-10 max-w-[1450px] mx-auto justify-between pt-3 pb-16 ">
+        <div className="flex flex-col   gap-5 lg:flex-row px-4 md:px-6 lg:px-10 max-w-[1450px] mx-auto justify-between pt-3 pb-16 ">
           <CryptoInfo />
           <GetStarted />
         </div>
