@@ -7,3 +7,10 @@
   padding: 0%;
   font-family: "Inter", sans-serif;
 }
+
+/* styles.css */
+.hover-effect:hover {
+  color: #0141CF;
+  font-weight: 600;
+  text-decoration: underline;
+}

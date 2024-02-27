@@ -63,10 +63,10 @@ const Sentiments = () => {
               </div>
 
               <div className="">
-                <h1 className="pb-2 text-[12px] md:text-[14px]">
+                <h1 className="pb-2 text-[12px] font-medium text-[#191C1F] md:text-[14px]">
                   {item.title}
                 </h1>
-                <h3 className="text-[10px] md:text-[14px] ">{item.content}</h3>
+                <h3 className="text-[10px] md:text-[14px] text-[#3E5765] ">{item.content}</h3>
               </div>
             </div>
           ))}

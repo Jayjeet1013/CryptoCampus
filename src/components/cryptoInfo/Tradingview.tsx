@@ -36,12 +36,13 @@ const TradingViewWidget: React.FC = () => {
 
   return (
     <div className="tradingview-widget-container h-[600px] " ref={container}>
-      <div className="tradingview-widget-copyright">
+      <div >
         <a
           href="https://www.tradingview.com/"
           rel="noopener noreferrer"
           target="_blank"
         ></a>
+        
       </div>
     </div>
   );

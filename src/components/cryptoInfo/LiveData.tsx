@@ -47,15 +47,18 @@ const LiveData: React.FC = () => {
           Rank #1
         </div>
       </div>
+
+      {/* price of biton in usd & inr */}
+
       <div>
         {bitcoinData && (
           <div className="flex flex-col space-y-1">
-            <div className="flex gap-12 items-center mt-8 ">
+            <div className="flex gap-7 md:gap-12 items-center mt-8 ">
               <span className="font-semibold text-[28px] flex  items-center">
-                <BsCurrencyDollar/>
+                <BsCurrencyDollar />
                 {formatPriceWithCommas(bitcoinData.usd)}{" "}
               </span>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 <span className="p-1 bg-[#EBF9F4] text-[#14B079] flex gap-1 items-center ">
                   {" "}
                   <GoTriangleUp size={"20px"} />{" "}
@@ -68,15 +71,19 @@ const LiveData: React.FC = () => {
             </div>
             <div className="flex items-center">
               <MdCurrencyRupee />
-              <span className="font-bold ">
-                {(bitcoinData.inr)}{" "}
-              </span>
+              <span className="font-bold ml-[2px] ">{bitcoinData.inr} </span>
             </div>
           </div>
         )}
         {!bitcoinData && <p>Loading...</p>}
       </div>
-      <div className="h-[300px] md:h-[600px] mt-5 ">
+
+      {/* Bitcoin live chart */}
+
+      <div className="font-semibold text-[#0B1426]  ml-3 mt-2 text-[16px] ">
+        Bitcoin Price Chart (USD)
+      </div>
+      <div className="h-[300px] md:h-[600px] mt-3 ">
         <Tradingview />
       </div>
     </div>

@@ -34,11 +34,11 @@ const Top3Crypto: React.FC = () => {
 
   return (
     <div className="py-4 md:px-6 bg-[#FFFFFF] rounded-lg mt-1 md:mt-4 md:w-full w-[92%] md:relative  absolute ">
-      <div className="text-[24px] font-semibold mb-2 ">
+      <div className="text-[24px] text-[#0F1629] font-semibold mb-2 ">
         Trending Coins (24h)
       </div>
       {top3Coins.map((crypto) => (
-        <div key={crypto.id} className="items-center justify-between flex space-y-3 ">
+        <div key={crypto.id} className="items-center text-[#0F1629] justify-between flex space-y-3 ">
           <div className="flex gap-1 items-center">
             <img
               src={crypto.large}
