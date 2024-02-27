@@ -40,7 +40,7 @@ const Sentiments = () => {
         </h2>
       </div>
       <div
-        className="w-[100%] md:w-[100%] lg:w-[880px]  relative overflow-hidden"
+        className="w-[100%] md:w-[100%] lg:w-[100%]  relative overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >

@@ -6,7 +6,7 @@ import { BsArrowRightShort } from "react-icons/bs";
 const GetStarted = () => {
   return (
     <div>
-      <div className="bg-[#0052FE] px-[16px] md:px-[30px] py-[40px] rounded-2xl gap-[20px] flex flex-col w-[100%] md:mb-0 mb-6  md:w-[426px] items-center ">
+      <div className="bg-[#0052FE] px-[16px] md:px-[30px] py-[40px] rounded-2xl gap-[20px] flex flex-col  md:mb-0 mb-6  w-[100%] items-center ">
         <div className="flex md:flex-col flex-col-reverse items-center gap-[20px]  ">
           <div className="text-[#FFFFFF] font-bold text-[22px] text-center lg:text-[24px] ">
             Get Started with KoinX for FREE
