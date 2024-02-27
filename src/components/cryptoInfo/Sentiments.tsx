@@ -66,7 +66,9 @@ const Sentiments = () => {
                 <h1 className="pb-2 text-[12px] font-medium text-[#191C1F] md:text-[14px]">
                   {item.title}
                 </h1>
-                <h3 className="text-[10px] md:text-[14px] text-[#3E5765] ">{item.content}</h3>
+                <h3 className="text-[10px] md:text-[14px] text-[#3E5765] ">
+                  {item.content}
+                </h3>
               </div>
             </div>
           ))}
@@ -78,6 +80,8 @@ const Sentiments = () => {
           <FaAngleRight size={20} color="#757779" />
         </button>
       </div>
+
+      {/*Analyst Estimates section part */}
 
       <div className="pt-3 ">
         <h2 className="flex gap-2 text-[#44475B] font-semibold text-[18px] ">

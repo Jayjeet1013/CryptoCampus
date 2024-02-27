@@ -54,6 +54,9 @@ const AboutCrypto = () => {
             </p>
           </div>
         </div>
+
+{/* already holding bitcoin section part */}
+
         <div className="p-1 ">
           <h1 className="text-[#0F1629] mb-2 text-[18px] lg:text-[24px] md:font-bold font-semibold">
             Already Holding Bitcoin?

@@ -22,7 +22,7 @@ const LiveData: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=inr%2Cusd&include_24hr_change=true",
+          "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=inr%2Cusd&include_24hr_change=true&precision=2",
           { headers: { "X-Requested-With": "XMLHttpRequest" } }
         );
         const data = await response.json();
@@ -53,7 +53,7 @@ const LiveData: React.FC = () => {
       <div>
         {bitcoinData && (
           <div className="flex flex-col space-y-1">
-            <div className="flex gap-7 md:gap-12 items-center mt-8 ">
+            <div className="flex gap-9 md:gap-12 items-center mt-7 ">
               <span className="font-semibold text-[28px] flex  items-center">
                 <BsCurrencyDollar />
                 {formatPriceWithCommas(bitcoinData.usd)}{" "}
@@ -71,7 +71,11 @@ const LiveData: React.FC = () => {
             </div>
             <div className="flex items-center">
               <MdCurrencyRupee />
-              <span className="font-bold ml-[2px] ">{bitcoinData.inr} </span>
+              <span className="font-bold ml-[2px] ">
+                {bitcoinData.inr.toLocaleString("en-IN", {
+                  maximumFractionDigits: 0,
+                })}{" "}
+              </span>
             </div>
           </div>
         )}
