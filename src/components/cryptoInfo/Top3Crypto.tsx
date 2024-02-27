@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { GoTriangleUp } from "react-icons/go";
 
 interface Coin {
   id: string;
@@ -37,7 +38,7 @@ const Top3Crypto: React.FC = () => {
         Trending Coins (24h)
       </div>
       {top3Coins.map((crypto) => (
-        <div key={crypto.id} className="items-center justify-between flex ">
+        <div key={crypto.id} className="items-center justify-between flex space-y-3 ">
           <div className="flex gap-1 items-center">
             <img
               src={crypto.large}
@@ -49,19 +50,32 @@ const Top3Crypto: React.FC = () => {
               {crypto.name}({crypto.symbol}){" "}
             </h2>
           </div>
-          {crypto.data.price_change_percentage_24h ? (
-            <p
-              className={`mt-2 text-[16px] ${
-                crypto.data.price_change_percentage_24h.usd >= 0
-                  ? "text-green-500"
-                  : "text-red-500"
-              }`}
-            >
-              {crypto.data.price_change_percentage_24h.usd.toFixed(2)}%
-            </p>
-          ) : (
-            <p className="mt-2 text-lg">Price change data not available</p>
-          )}
+          <div className="flex items-center bg-[#EBF9F4] rounded-lg p-1  ">
+            <GoTriangleUp
+              size={"20px"}
+              className="mr-[2px]"
+              style={{
+                color:
+                  crypto.data.price_change_percentage_24h &&
+                  crypto.data.price_change_percentage_24h.usd >= 0
+                    ? "#10B981"
+                    : "#EF4444",
+              }}
+            />
+            {crypto.data.price_change_percentage_24h ? (
+              <p
+                className={` text-[16px] ${
+                  crypto.data.price_change_percentage_24h.usd >= 0
+                    ? "text-green-500"
+                    : "text-red-500"
+                }`}
+              >
+                {crypto.data.price_change_percentage_24h.usd.toFixed(2)}%
+              </p>
+            ) : (
+              <p className="mt-2 text-lg">Price change data not available</p>
+            )}
+          </div>
         </div>
       ))}
     </div>

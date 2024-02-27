@@ -73,7 +73,7 @@ const Sentiments = () => {
         </div>
         <button
           onClick={nextSlide}
-          className="absolute md:block hidden right-2 top-1/2 transform -translate-y-1/2 p-4 bg-white rounded-full "
+          className="absolute  right-2 top-1/2 transform -translate-y-1/2 p-4 bg-white rounded-full "
         >
           <FaAngleRight size={20} color="#757779" />
         </button>

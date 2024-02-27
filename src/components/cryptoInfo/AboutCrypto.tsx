@@ -10,10 +10,10 @@ const AboutCrypto = () => {
           <h1 className="text-[#0F1629] lg:text-[24px] font-[600] ">
             About Bitcoin
           </h1>
-          <h3 className="text-[#0F1629] lg:text-[18px] font-bold  ">
+          <h3 className="text-[#0F1629] lg:text-[18px] font-bold mt-3 ">
             What is Bitcoin
           </h3>
-          <p className="text-[#3E424A] ">
+          <p className="text-[#3E424A] leading-[25px] mt-2 text-[16px] font-medium ">
             Bitcoin&apos;s price today is US$16,951.82, with a 24-hour trading
             volume of $19.14 B. BTC is +0.36% in the last 24 hours. It is
             currently -7.70% from its 7-day all-time high of $18,366.66, and
@@ -25,6 +25,7 @@ const AboutCrypto = () => {
           <h3 className="text-[#0F1629] lg:text-[18px] font-bold ">
             Lorem ipsum dolor sit amet
           </h3>
+          <div className="text-[#3E424A] leading-[25px] mt-2 text-[16px] font-medium space-y-4 " >
           <p>
             Lorem ipsum dolor sit amet consectetur. Aliquam placerat sit
             lobortis tristique pharetra. Diam id et lectus urna et tellus
@@ -50,13 +51,14 @@ const AboutCrypto = () => {
             congue ipsum fames amet dui. Purus ultrices tincidunt volutpat in
             eget. Ullamcorper dui
           </p>
+          </div>
         </div>
-        <div>
-          <h1 className="text-[#0F1629]  lg:text-[24px] font-semibold">
+        <div className="p-1 ">
+          <h1 className="text-[#0F1629] mb-2 lg:text-[24px] font-semibold">
             Already Holding Bitcoin?
           </h1>
-          <div className="flex gap-6 pb-3 md:flex-row flex-col ">
-            <div className="flex  md:w-[338px] gap-6 p-3 rounded-lg bg-gradient-to-br from-[#79F1A4] to-[#0E5CAD]">
+          <div className="flex gap-6 mb-4 md:flex-row flex-col ">
+            <div className="flex  md:w-[45%] gap-6 p-3 rounded-lg bg-gradient-to-br from-[#79F1A4] to-[#0E5CAD]">
               <div>
                 <Image
                   src={"/rec2.svg"}
@@ -66,7 +68,7 @@ const AboutCrypto = () => {
                   className="rounded-lg "
                 />
               </div>
-              <div>
+              <div className="p-1 ">
                 <h1 className="text-[#FFFFFF] text-[20px] font-bold mb-2">
                   Calculate your Profits
                 </h1>
@@ -75,7 +77,7 @@ const AboutCrypto = () => {
                 </div>
               </div>
             </div>
-            <div className="flex md:w-[338px] gap-6 p-3 rounded-lg bg-gradient-to-br from-[#FF9865] to-[#EF3031]">
+            <div className="flex md:w-[48%] gap-6 p-3 rounded-lg bg-gradient-to-br from-[#FF9865] to-[#EF3031]">
               <div>
                 <Image
                   src={"/rec.svg"}
@@ -86,8 +88,8 @@ const AboutCrypto = () => {
                 />
               </div>
               <div>
-                <h1 className="text-[#FFFFFF] text-[20px] font-bold mb-2">
-                  Calculate your Profits
+                <h1 className="text-[#FFFFFF] text-[20px] font-bold mb-3">
+                Calculate your tax liability
                 </h1>
                 <div className="flex gap-2 items-center p-2 bg-white rounded-lg w-[132px] justify-center ">
                   <p>Check Now</p> <BsArrowRightShort size={"24px"} />
@@ -96,7 +98,7 @@ const AboutCrypto = () => {
             </div>
           </div>
 
-          <p className="text-[#3E424A] border-t pt-3 ">
+          <p className="text-[#3E424A] border-t mt-5 leading-[25px] pt-4 text-[16px] font-medium ">
             Fermentum hendrerit imperdiet nulla viverra faucibus. Sit aliquam
             massa vel convallis duis ac. Mi adipiscing semper scelerisque
             porttitor pulvinar nunc risus. Fermentum potenti iaculis lacinia
