@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>KoinX</title>
+        <title>Crypto-Campus</title>
         <meta name="KoinX" content="Koinx" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/koinxlogo.svg" />
+        <link rel="icon" href="/koinxlog.svg" />
       </Head>
       <div className="bg-[#D3E0E6] ">
        
