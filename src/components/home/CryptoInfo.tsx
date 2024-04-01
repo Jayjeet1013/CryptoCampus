@@ -6,10 +6,10 @@ import AllData from "../cryptoInfo/AllData";
 
 const CryptoInfo = () => {
   return (
-    <div className=" w-[100%] lg:w-[66%] ">
+    <div className=" w-[100%] ">
       <LiveData />
-      <AllData />
-      <AboutCrypto />
+      {/* <AllData /> */}
+      {/* <AboutCrypto /> */}
     </div>
   );
 };
