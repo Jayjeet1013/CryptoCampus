@@ -34,7 +34,7 @@ const LiveData: React.FC = () => {
     <div className="bg-[#FFFFFF] flex flex-wrap gap-12 p-3 md:p-6 rounded-lg">
       {coinsData.map((coin) => (
         <div key={coin.id}>
-          <Link href={coin.id}>
+          <Link href={`/coin/${coin.id}`}>
           <img src={coin.image} className="w-[30px] " alt={coin.name} />
           <p>{coin.name}</p>
           <p>Price: ${coin.current_price}</p>
