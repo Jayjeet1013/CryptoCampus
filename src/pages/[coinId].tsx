@@ -41,7 +41,7 @@ const CoinDetails: React.FC = () => {
       <p>Symbol: {coinData.symbol}</p>
       <p>Current Price: ${coinData.current_price}</p>
       <p>About: {coinData.description.en}</p>
-      {/* Add more details as needed */}
+   
     </div>
   );
 };
