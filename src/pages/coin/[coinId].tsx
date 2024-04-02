@@ -1,43 +1,51 @@
+// pages/coin/[coinId].tsx
+
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-interface Cryptoinfo {
+interface CoinData {
   id: string;
   symbol: string;
   name: string;
   image: string;
-  description: { [key: string]: string }; 
+  description: { [key: string]: string };
   current_price: number;
 }
 
-const Index = ({coinId}:{coinId:string}) => {
-  const [cryptodata, setCryptoData] = useState<Cryptoinfo | null>(null);
+const CoinDetails: React.FC = () => {
+  const router = useRouter();
+  const { coinId } = router.query;
+  const [coinData, setCoinData] = useState<CoinData | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://api.coingecko.com/api/v3/coins/${coinId}");
-        const datas = await response.json();
-        setCryptoData(datas);
+        if (coinId) {
+          const response = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}`);
+          const data = await response.json();
+          setCoinData(data);
+        }
       } catch (error) {
-        console.error("Got error", error);
+        console.error('Failed to fetch data:', error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [coinId]);
+
+  if (!coinData) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
-  {cryptodata && (
-        <div>
-          <p>Symbol: {cryptodata.symbol}</p>
-          <p>Name: {cryptodata.name}</p>
-          {/* <p>About :- {cryptodata.description.en}</p> */}
-          
-        </div>
-      )}
+      <h1>{coinData.name}</h1>
+      <p>Symbol: {coinData.symbol}</p>
+      <p>Current Price: ${coinData.current_price}</p>
+      <p>About: {coinData.description.en}</p>
+      {/* Add more details as needed */}
     </div>
   );
 };
 
-export default Index;
+export default CoinDetails;
