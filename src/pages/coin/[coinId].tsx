@@ -1,5 +1,3 @@
-// pages/coin/[coinId].tsx
-
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
