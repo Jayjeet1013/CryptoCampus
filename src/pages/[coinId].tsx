@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
@@ -7,7 +8,8 @@ interface CoinData {
   name: string;
   image: string;
   description: { [key: string]: string };
-  current_price: number;
+  market_data: { current_price: { usd: number } };
+  links: { whitepaper: string };
 }
 
 const CoinDetails: React.FC = () => {
@@ -37,11 +39,19 @@ const CoinDetails: React.FC = () => {
 
   return (
     <div>
-      <h1>{coinData.name}</h1>
+
+<div className="flex flex-col   gap-5 px-4 md:px-6 lg:px-10 max-w-[1450px] mx-auto justify-between pt-3 md:pb-16 ">
+        <h1>{coinData.name}</h1>
       <p>Symbol: {coinData.symbol}</p>
-      <p>Current Price: ${coinData.current_price}</p>
+      <p>Current Price: ${coinData.market_data.current_price.usd}</p>
       <p>About: {coinData.description.en}</p>
-   
+      <p>
+          <Link href={coinData.links.whitepaper} target="_blank" >
+            Whitepaper
+          </Link>
+        </p>
+        </div>
+      
     </div>
   );
 };
