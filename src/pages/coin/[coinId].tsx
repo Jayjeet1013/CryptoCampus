@@ -32,7 +32,7 @@ const Index = ({coinId}:{coinId:string}) => {
         <div>
           <p>Symbol: {cryptodata.symbol}</p>
           <p>Name: {cryptodata.name}</p>
-          <p>About :- {cryptodata.description.en}</p>
+          {/* <p>About :- {cryptodata.description.en}</p> */}
           
         </div>
       )}
