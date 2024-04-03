@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { GoTriangleUp } from "react-icons/go";
 
@@ -23,7 +24,7 @@ const Top3Crypto: React.FC = () => {
           "https://api.coingecko.com/api/v3/search/trending"
         );
         const data = await response.json();
-        setTop3Coins(data.coins.slice(0, 3).map((coin: any) => coin.item));
+        setTop3Coins(data.coins.map((coin: any) => coin.item));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -40,6 +41,7 @@ const Top3Crypto: React.FC = () => {
       {top3Coins.map((crypto) => (
         <div key={crypto.id} className="items-center text-[#0F1629] justify-between flex space-y-3 ">
           <div className="flex gap-1 items-center">
+            <Link href={`/${crypto.id}`} className="flex gap-1">
             <img
               src={crypto.large}
               alt={crypto.name}
@@ -49,6 +51,7 @@ const Top3Crypto: React.FC = () => {
             <h2 className="text-[16px] font-semibold ">
               {crypto.name}({crypto.symbol}){" "}
             </h2>
+            </Link>
           </div>
           <div className="flex items-center bg-[#EBF9F4] rounded-lg p-1  ">
             <GoTriangleUp
