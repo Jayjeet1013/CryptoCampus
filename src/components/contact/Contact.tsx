@@ -1,46 +1,60 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 
-export default function ContactForm() {
-        const [fullname, setFullname] = useState("");
-        const [email, setEmail] = useState("");
-        const [message, setMessage] = useState("");
-        const [error, setError] = useState([]);
-        const [success, setSuccess] = useState(false);
+interface Error {
+  msg: string[];
+}
+
+export default function ContactForm(): JSX.Element {
+  const [fullname, setFullname] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [error, setError] = useState<Error>({ msg: [] });
+  const [success, setSuccess] = useState<boolean>(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+        e.preventDefault();
       
-        const handleSubmit = async (e:any) => {
-          e.preventDefault();
+        console.log("Full name: ", fullname);
+        console.log("Email: ", email);
+        console.log("Message: ", message);
       
-          console.log("Full name: ", fullname);
-          console.log("Email: ", email);
-          console.log("Message: ", message);
-      
+        try {
           const res = await fetch("/api/contact", {
             method: "POST",
             headers: {
               "Content-type": "application/json",
             },
-           
+            body: JSON.stringify({
+              fullname,
+              email,
+              message,
+            }),
           });
       
-          const { msg, success } = await res.json();
-          setError(msg);
-          setSuccess(success);
+          const data = await res.json();
       
-          if (success) {
-            setFullname("");
-            setEmail("");
-            setMessage("");
+          if (!res.ok) {
+            throw new Error(data.msg.join("\n"));
           }
-        };
       
+          setError({ msg: [] });
+          setSuccess(true);
+          setFullname("");
+          setEmail("");
+          setMessage("");
+        } catch (error: any) { // Specify 'any' as the type for 'error'
+          console.error("Error handling POST request:", error);
+          setError({ msg: [error.message] });
+          setSuccess(false);
+        }
+      };
+      
+
   return (
-    <div className=" max-w-2xl mx-auto mt-20">
-      <form
-        onSubmit={handleSubmit}
-        className="py-4 mt-4 flex flex-col gap-5"
-      >
+    <div className="max-w-2xl mx-auto mt-20">
+      <form onSubmit={handleSubmit} className="py-4 mt-4 flex flex-col gap-5">
         <div className="flex flex-col md:flex-row justify-between md:items-center">
-          <label htmlFor="fullname" className="md:w-[140px] ">
+          <label htmlFor="fullname" className="md:w-[140px]">
             Full Name
           </label>
           <input
@@ -49,7 +63,7 @@ export default function ContactForm() {
             type="text"
             id="fullname"
             placeholder="John Doe"
-            className="w-full  px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
           />
         </div>
 
@@ -63,12 +77,12 @@ export default function ContactForm() {
             type="email"
             id="email"
             placeholder="john@gmail.com"
-            className="w-full  px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
           />
         </div>
 
         <div className="flex flex-col md:flex-row justify-between md:items-center">
-          <label htmlFor="message" className=" md:w-[140px] ">
+          <label htmlFor="message" className="md:w-[140px]">
             Your Message
           </label>
           <textarea
@@ -77,7 +91,6 @@ export default function ContactForm() {
             className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
             id="message"
             placeholder="Type your message here..."
-          
           ></textarea>
         </div>
 
@@ -87,17 +100,14 @@ export default function ContactForm() {
       </form>
 
       <div className="bg-gray-100 flex flex-col mt-4">
-        {error &&
-          error.map((e, index) => (
-            <div
-              key={index}
-              className={`${
-                success ? "text-green-800" : "text-red-600"
-              } px-5 py-2`}
-            >
-              {e}
-            </div>
-          ))}
+        {error.msg.map((msg, index) => (
+          <div key={index} className="text-red-600 px-5 py-2">
+            {msg}
+          </div>
+        ))}
+        {success && (
+          <div className="text-green-800 px-5 py-2">Message sent successfully</div>
+        )}
       </div>
     </div>
   );
