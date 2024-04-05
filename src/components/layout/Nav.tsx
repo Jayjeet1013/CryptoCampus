@@ -1,3 +1,4 @@
+import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -5,6 +6,13 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Nav = () => {
   const [menu, setMenu] = useState(false);
+  
+
+
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
 
   const toggleMenu = () => {
     setMenu(!menu);
@@ -42,14 +50,16 @@ const Nav = () => {
             <div className="flex md:flex-row flex-col gap-5 md:gap-12 items-center text-[#0F1629] font-semibold text-[16px] ">
               <Link href={"/"}>
                 <h1>Home</h1>
-              </Link>
-              <Link href={"/"}>
-                <h1>About</h1>
-              </Link>
+              </Link>{" "}
               <Link href={"/contact"}>
                 <h1>Contact</h1>
               </Link>
-
+              {/* <Link href={"/"}>
+                <h1>Login</h1>
+              </Link> */}
+            <button onClick={handleSignOut}>Logout</button>
+               
+            
               {/* Get Started Button */}
               {/* <div>
                 <Link href={"/"}>
