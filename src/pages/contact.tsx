@@ -1,7 +1,7 @@
 
 import ContactForm from '@/components/contact/Contact'
 import Nav from '@/components/layout/Nav'
-import { signIn, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import React from 'react'
 
 const contact = () => {
@@ -16,6 +16,10 @@ const contact = () => {
     }
   };
 
+
+
+  
+
   if (session.data === null) {
     return (
       <div className="flex mt-[13%] flex-col mx-auto max-w-xl items-center justify-center my-auto ">
@@ -29,6 +33,11 @@ const contact = () => {
   return (
     <div className='mx-auto max-w-4xl pt-4 ' >
    <p >WelCome  {session?.data?.user?.name}</p>
+   <button onClick={
+  async ()=>{
+    await signOut();
+  }
+   }> logout </button>
         <ContactForm/>
     </div>
   )
