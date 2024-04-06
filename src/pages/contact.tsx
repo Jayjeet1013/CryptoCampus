@@ -4,8 +4,8 @@ import Nav from '@/components/layout/Nav'
 import { signIn, signOut, useSession } from 'next-auth/react';
 import React from 'react'
 
-const contact = () => {
-  const session = useSession();
+const Contact = () => {
+  const  session  = useSession();
 
   const handleSignIn = async () => {
     try {
@@ -43,4 +43,4 @@ const contact = () => {
   )
 }
 
-export default contact
+export default Contact
