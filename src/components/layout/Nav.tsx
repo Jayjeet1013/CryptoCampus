@@ -9,11 +9,6 @@ const Nav = () => {
   
 
 
-
-  const handleSignOut = async () => {
-    await signOut();
-  };
-
   const toggleMenu = () => {
     setMenu(!menu);
   };
@@ -54,11 +49,10 @@ const Nav = () => {
               <Link href={"/contact"}>
                 <h1>Contact</h1>
               </Link>
-              {/* <Link href={"/"}>
-                <h1>Login</h1>
-              </Link> */}
-            <button onClick={handleSignOut}>Logout</button>
-               
+              <Link href={"/"}>
+                <h1>About</h1>
+              </Link>
+           
             
               {/* Get Started Button */}
               {/* <div>
