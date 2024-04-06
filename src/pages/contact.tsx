@@ -27,8 +27,8 @@ const contact = () => {
   }
 
   return (
-    <div>
-      <Nav/>
+    <div className='mx-auto max-w-4xl pt-4 ' >
+   <p >WelCome  {session?.data?.user?.name}</p>
         <ContactForm/>
     </div>
   )
