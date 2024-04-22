@@ -18,8 +18,8 @@ export default function ContactForm(): JSX.Element {
         console.log("Full name: ", fullname);
         console.log("Email: ", email);
         console.log("Message: ", message);
-      
-      setLoading(false)
+       setLoading(true);
+   
          
         try {
           const res = await fetch("/api/contact", {
@@ -33,23 +33,26 @@ export default function ContactForm(): JSX.Element {
               message,
             }),
           });
-      
+
           const data = await res.json();
-      
+         
           if (!res.ok) {
             throw new Error(data.msg.join("\n"));
           }
-      
+
           setError({ msg: [] });
           setSuccess(true);
           setFullname("");
           setEmail("");
           setMessage("");
-          setLoading(true)
-        } catch (error: any) { // Specify 'any' as the type for 'error'
+         
+        } catch (error: any) {
+          // Specify 'any' as the type for 'error'
           console.error("Error handling POST request:", error);
           setError({ msg: [error.message] });
           setSuccess(false);
+        } finally {
+          setLoading(false); // Set loading to false after handling the response
         }
       };
       
@@ -102,7 +105,7 @@ export default function ContactForm(): JSX.Element {
           className="bg-green-700 w-1/3 mx-auto rounded-md p-3 text-white font-bold"
           type="submit"
         >
-          {loading ? "Send" : "Sending"}
+          {loading ? "Sending" : "Send"}
         </button>
       </form>
 
