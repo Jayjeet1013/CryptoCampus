@@ -18,9 +18,24 @@ export default function Home() {
         <meta name="KoinX" content="Koinx" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/koinxlog.svg" />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
       </Head>
       <div className="bg-[#D3E0E6] ">
-      
         <div className="flex flex-col gap-5 px-4 md:px-6 lg:px-10 max-w-[1450px] mx-auto justify-between pt-3 md:pb-16 ">
           <CryptoInfo />
           <GetStarted />
