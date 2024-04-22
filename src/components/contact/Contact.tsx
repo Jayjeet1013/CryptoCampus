@@ -10,6 +10,7 @@ export default function ContactForm(): JSX.Element {
   const [message, setMessage] = useState<string>("");
   const [error, setError] = useState<Error>({ msg: [] });
   const [success, setSuccess] = useState<boolean>(false);
+  const [loading,setLoading] = useState<boolean>(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
@@ -18,6 +19,8 @@ export default function ContactForm(): JSX.Element {
         console.log("Email: ", email);
         console.log("Message: ", message);
       
+      setLoading(false)
+         
         try {
           const res = await fetch("/api/contact", {
             method: "POST",
@@ -42,6 +45,7 @@ export default function ContactForm(): JSX.Element {
           setFullname("");
           setEmail("");
           setMessage("");
+          setLoading(true)
         } catch (error: any) { // Specify 'any' as the type for 'error'
           console.error("Error handling POST request:", error);
           setError({ msg: [error.message] });
@@ -94,8 +98,11 @@ export default function ContactForm(): JSX.Element {
           ></textarea>
         </div>
 
-        <button className="bg-green-700 w-1/3 mx-auto rounded-md p-3 text-white font-bold" type="submit">
-          Send
+        <button
+          className="bg-green-700 w-1/3 mx-auto rounded-md p-3 text-white font-bold"
+          type="submit"
+        >
+          {loading ? "Send" : "Sending"}
         </button>
       </form>
 
@@ -106,7 +113,9 @@ export default function ContactForm(): JSX.Element {
           </div>
         ))}
         {success && (
-          <div className="text-green-800 px-5 py-2">Message sent successfully</div>
+          <div className="text-green-800 px-5 py-2">
+            Message sent successfully
+          </div>
         )}
       </div>
     </div>

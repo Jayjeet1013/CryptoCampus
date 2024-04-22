@@ -8,7 +8,6 @@ interface CoinData {
   name: string;
   image: string;
   current_price: number;
- 
 }
 
 const LiveData: React.FC = () => {
@@ -40,7 +39,6 @@ const LiveData: React.FC = () => {
           <p>{coin.name}</p>
           <p>Price: ${coin.current_price}</p>
           </Link>
-         
         </div>
       ))}
     </div>

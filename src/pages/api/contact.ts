@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Connect to MongoDB
     await connectDB();
-
+     
     // Create a new contact record
     const newContact = new Contact({ fullname, email, message });
     await newContact.save();
