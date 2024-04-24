@@ -22,14 +22,14 @@ const LiveData: React.FC = () => {
           "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
         );
         if (response.status === 429) {
-          setError("Wait for some minutes, data loading.");
+          setError("Wait for some minutes");
           return;
         }
         const data = await response.json();
         setCoinsData(data);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setError("Limit exceeded, Wait for some minutes, data loading.");
+        setError("Limit exceeded, Wait for some minutes.");
       } finally {
         setLoading(false);
       }
