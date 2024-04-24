@@ -22,15 +22,14 @@ const LiveData: React.FC = () => {
           "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
         );
         if (response.status === 429) {
-          setError(
-            "API limit exceeded, please wait for a few minutes and try again."
-          );
+          setError("Wait for some minutes, data loading.");
           return;
         }
         const data = await response.json();
         setCoinsData(data);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError("Limit exceeded, Wait for some minutes, data loading.");
       } finally {
         setLoading(false);
       }
@@ -47,7 +46,7 @@ const LiveData: React.FC = () => {
         <div>{error}</div>
       ) : (
         coinsData.map((coin) => (
-          <div key={coin.id} >
+          <div key={coin.id}>
             <Link href={`/${coin.id}`}>
               <img src={coin.image} className="w-[30px] " alt={coin.name} />
               <p>{coin.name}</p>
