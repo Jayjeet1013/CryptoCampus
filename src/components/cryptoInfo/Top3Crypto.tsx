@@ -16,9 +16,11 @@ interface Coin {
 
 const Top3Crypto: React.FC = () => {
   const [top3Coins, setTop3Coins] = useState<Coin[]>([]);
+  const [loading,setLoading]= useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const response = await fetch(
           "https://api.coingecko.com/api/v3/search/trending"
@@ -27,6 +29,8 @@ const Top3Crypto: React.FC = () => {
         setTop3Coins(data.coins.map((coin: any) => coin.item));
       } catch (error) {
         console.error("Error fetching data:", error);
+      }finally{
+        setLoading(false);
       }
     };
 
@@ -38,7 +42,8 @@ const Top3Crypto: React.FC = () => {
       <div className="text-[24px] text-[#0F1629] font-semibold mb-2 ">
         Trending Coins (24h)
       </div>
-      {top3Coins.map((crypto) => (
+      {loading ? "loading...": 
+        top3Coins.map((crypto) => (
         <div key={crypto.id} className="items-center text-[#0F1629] justify-between flex space-y-3 ">
           <div className="flex gap-1 items-center">
             <Link href={`/${crypto.id}`} className="flex gap-1">
@@ -81,6 +86,8 @@ const Top3Crypto: React.FC = () => {
           </div>
         </div>
       ))}
+      
+   
     </div>
   );
 };
