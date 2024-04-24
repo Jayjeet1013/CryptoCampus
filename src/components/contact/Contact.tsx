@@ -1,4 +1,7 @@
 import { useState, FormEvent } from "react";
+import { motion } from "framer-motion";
+import React from "react";
+import { AuroraBackground } from "../ui/aurora-background";
 
 interface Error {
   msg: string[];
@@ -58,7 +61,18 @@ export default function ContactForm(): JSX.Element {
       
 
   return (
-    <div className="max-w-2xl mx-auto mt-20">
+    <AuroraBackground>
+      <motion.div
+        initial={{ opacity: 0.0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="relative flex flex-col gap-4 items-center justify-center px-4"
+      >
+    <div className=" mx-auto mt-20">
       <form onSubmit={handleSubmit} className="py-4 mt-4 flex flex-col gap-5">
         <div className="flex flex-col md:flex-row justify-between md:items-center">
           <label htmlFor="fullname" className="md:w-[140px]">
@@ -122,5 +136,7 @@ export default function ContactForm(): JSX.Element {
         )}
       </div>
     </div>
+       </motion.div>
+    </AuroraBackground>
   );
 }

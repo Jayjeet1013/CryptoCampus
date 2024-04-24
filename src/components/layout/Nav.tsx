@@ -14,7 +14,7 @@ const Nav = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-blue-500 backdrop-blur-lg fixed mx-auto w-full z-[100] ">
       <div className="max-w-[1450px] mx-auto px-7 md:px-12 relative">
         <div className="flex justify-between py-4">
           {/* Logo */}
