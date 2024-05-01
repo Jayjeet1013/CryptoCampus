@@ -14,12 +14,12 @@ const Nav = () => {
   };
 
   return (
-    <div className="bg-blue-500 backdrop-blur-lg fixed mx-auto w-full z-[100] ">
+    <div className="bg-orange-100 py-1 backdrop-blur-lg fixed mx-auto w-full z-[100] ">
       <div className="max-w-[1450px] mx-auto px-7 md:px-12 relative">
         <div className="flex justify-between py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href={"/"}>
+            <Link href={"/"} className="text-[16px] md:text-[24px] ">
               {/* <Image src={"/koinxlogo.svg"} width={96} height={24} alt="logo" /> */}
               CryptoCampus
             </Link>
@@ -52,8 +52,9 @@ const Nav = () => {
               <Link href={"/"}>
                 <h1>About</h1>
               </Link>
-           
-            
+              <Link href={"/coins"}>
+                <h1>Coins</h1>
+              </Link>
               {/* Get Started Button */}
               {/* <div>
                 <Link href={"/"}>
